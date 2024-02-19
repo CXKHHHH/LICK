@@ -1,7 +1,7 @@
 import { Input, Form, Space, Select, Button, Table, Modal, Upload } from "antd";
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
-import { requestExpertmanagement, requestAddexperts } from "@/service";
+import { requestExpertmanagement } from "@/service";
 import styled from "styled-components";
 import { Stepper } from "antd-mobile";
 import ImgCrop from "antd-img-crop";
@@ -46,6 +46,7 @@ const columns = [
 ];
 const Index = () => {
   const [imgsrc, setImg] = useState(null);
+  console.log(imgsrc);
   const [fileList, setFileList] = useState([]);
   const onChange = ({ fileList: newFileList }) => {
     setFileList(newFileList);
@@ -78,7 +79,7 @@ const Index = () => {
     imgWindow?.document.write(image.outerHTML);
   };
   const onFinish = () => {
-    console.log(JSON.parse(localStorage.getItem("ok")).baseURL);
+    console.log(JSON.parse(localStorage.getItem("ok"))?.baseURL);
     // console.log(value);
     // requestAddexperts({
     //   id: 99,
