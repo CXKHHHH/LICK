@@ -93,6 +93,7 @@ const Index = () => {
     //   doctorCode: 1929,
     // })
   };
+
   const [data, setCount] = useState(null);
   useEffect(() => {
     requestExpertmanagement()
@@ -141,18 +142,14 @@ const Index = () => {
   }, []);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
-    axios
-      .get("http://192.168.68.174:8081/upload/token")
-      .then((res) => {
-        console.log(res.data.result.baseURL);
-        console.log(res.data.result.uploadToken);
-        let Token = JSON.stringify(res.data.result);
-        console.log(Token);
-        window.localStorage.setItem("ok", Token);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    axios.get("http://192.168.68.174:8081/upload/token").then((res) => {
+      console.log(res.data.result.baseURL);
+      console.log(res.data.result.uploadToken);
+      let Token = JSON.stringify(res.data.result);
+      console.log(Token);
+      window.localStorage.setItem("ok", Token);
+    });
+
     setIsModalOpen(true);
   };
   const handleOk = () => {
